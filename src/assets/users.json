@@ -1,0 +1,14 @@
+[
+    {
+        "userId":"admin",
+        "password":"admin@1234"
+    },
+    {
+        "userId":"reetesh",
+        "password":"reetesh@1234"
+    },
+    {
+        "userId":"user",
+        "password":"user@1234"
+    }
+]
