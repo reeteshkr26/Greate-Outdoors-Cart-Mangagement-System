@@ -17,7 +17,7 @@
                   <mat-card-content>
                       <div class="row">
                           <div class="col">
-                              <span style="color: black; font-size: medium;">{{getProductNameById(orderItem.productId)}}...</span>
+                              <span style="color: black; font-size: medium;">{{getProductNameById(orderItem.productId)|slice:0:40}}...</span>
                           </div>                         
                       </div>
                       <div class="row" style="padding-top: 1%;">

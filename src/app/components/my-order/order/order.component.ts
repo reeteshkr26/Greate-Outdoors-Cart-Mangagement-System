@@ -14,12 +14,20 @@ export class OrderComponent implements OnInit {
 
   orderList:any[]=[];
   refundSuccess:boolean=false;
+  productsList:Product[]=[];
+  productItem:Product;
   constructor(private orderService:OrderService,private router:Router,private addressService:AddressService,private productService:ProductService) { }
 
   ngOnInit(): void {
+    this.loadProductList()
     this.loadOrderList();
   }
 
+  loadProductList(){
+    this.productService.getProductList().subscribe((data)=>{
+      this.productsList=data;
+    })
+  }
   loadOrderList(){
     this.orderService.getAllOrderList("admin").subscribe((data)=>{
       this.orderList=data;
@@ -37,7 +45,19 @@ export class OrderComponent implements OnInit {
 
   getProductNameById(productId:string){
 
-    return "My Product Name";
+
+     for(let item of this.productsList){
+        if(item.productId==productId){
+          this.productItem=item;
+          break;
+        }
+      }
+      if(this.productItem!=null){
+        console.log(this.productItem.productName)
+        return this.productItem.productName;
+      }
+
+
     
   }
 }
